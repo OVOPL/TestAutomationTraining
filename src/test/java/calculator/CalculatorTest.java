@@ -1,4 +1,6 @@
-import com.wojtas.Calculator;
+package calculator;
+
+import com.wojtas.calculator.Calculator;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;

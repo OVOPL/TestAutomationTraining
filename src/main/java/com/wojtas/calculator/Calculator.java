@@ -1,4 +1,4 @@
-package com.wojtas;
+package com.wojtas.calculator;
 
 public class Calculator {
     private int x;

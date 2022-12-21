@@ -3,7 +3,7 @@
 <suite name="Calculator Suite">
     <test name="Sum Test">
         <classes>
-            <class name="CalculatorTest">
+            <class name="calculator.CalculatorTest">
                 <methods>
                     <include name="sumTest"/>
                 </methods>
@@ -12,7 +12,7 @@
     </test>
     <test name="Distinction Test">
         <classes>
-            <class name="CalculatorTest">
+            <class name="calculator.CalculatorTest">
                 <methods>
                     <include name="distinctionTest"/>
                 </methods>
