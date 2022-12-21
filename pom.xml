@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.wojtas</groupId>
+    <artifactId>TestAutomationTraining</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+<!--        dependecjaz testng maven repository szukaj w google-->
+        <dependency>
+            <groupId>org.testng</groupId>
+            <artifactId>testng</artifactId>
+            <version>6.14.3</version>
+            <scope>test</scope>
+        </dependency>
+<!--        meven reportng repository-->
+        <dependency>
+            <groupId>org.uncommons</groupId>
+            <artifactId>reportng</artifactId>
+            <version>1.1.4</version>
+            <scope>test</scope>
+            <exclusions>
+<!--                to trzeba wpisac na sztywno-->
+                <exclusion>
+                    <groupId>org.testng</groupId>
+                    <artifactId>testng</artifactId>
+                </exclusion>
+            </exclusions>
+
+        </dependency>
+<!--     biblioteka inject potrzebna do generowania raportu przez repotrng   -->
+        <dependency>
+            <groupId>com.google.inject</groupId>
+            <artifactId>guice</artifactId>
+            <version>4.2.2</version>
+            <scope>test</scope>
+        </dependency>
+
+    </dependencies>
+<!--też trzeba wpisać na sztywno-->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.0</version>
+                <configuration>
+                    <properties>
+                        <property>
+                            <name>usedefaultlisteners</name>
+                            <value>false</value>
+                        </property>
+                        <property>
+                            <name>listener</name>
+                            <value>org.uncommons.reportng.HTMLReporter, org.uncommons.reportng.JUnitXMLReporter</value>
+                        </property>
+                    </properties>
+                    <encoding>UTF-8</encoding>
+                    <argLine>-Dfile.encoding=UTF-8</argLine>
+                    <testFailureIgnore>true</testFailureIgnore>
+<!--                    poniżej ścieżka do scenariusza, on zrobi tylko ten co jest wskazany,
+                        dodajesz kolejne w tym polu po przecinku-->
+                    <suiteXmlFiles>src/main/resources/calculatorSuite.xml</suiteXmlFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+
+</project>
