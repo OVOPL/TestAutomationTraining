@@ -44,6 +44,12 @@
             <version>4.2.2</version>
             <scope>test</scope>
         </dependency>
+<!--        zależnośc selenium java z repozytorium maven-->
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>4.1.1</version>
+        </dependency>
 
     </dependencies>
 <!--też trzeba wpisać na sztywno-->
